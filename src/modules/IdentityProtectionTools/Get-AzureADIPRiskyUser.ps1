@@ -71,8 +71,6 @@ function Get-AzureADIPRiskyUser {
     )
     begin {
 
-        $apiPermissionScopes = @("IdentityRiskyUser.Read.All")
-
         if ($null -eq (Get-MgContext)) {
             Write-Error "Please Connect to MS Graph API with the Connect-MgGraph cmdlet from the Microsoft.Graph.Authentication module first before calling functions!" -ErrorAction Stop
         }
@@ -133,7 +131,7 @@ function Get-AzureADIPRiskyUser {
                     $filterBuilder = $filterDate
                 }
                 else {
-                    $filterBuilder = "{0} and {1}" -f $filterRiskLevel, $filterDate
+                    $filterBuilder = "{0} and {1}" -f $filterBuilder, $filterDate
                 }
             }
 

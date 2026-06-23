@@ -37,7 +37,6 @@ function Invoke-AzureADIPConfirmCompromisedRiskyUser {
         $UserIds
     )
     begin {
-        $apiPermissionScopes = @("IdentityRiskyUser.Read.All", "IdentityRiskyUser.ReadWrite.All")
         if ($null -eq (Get-MgContext)) {
             Write-Error "Please Connect to MS Graph API with the Connect-MgGraph cmdlet from the Microsoft.Graph.Authentication module first before calling functions!" -ErrorAction Stop
         }
